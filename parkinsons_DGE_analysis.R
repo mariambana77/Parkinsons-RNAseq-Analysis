@@ -9,8 +9,6 @@ install.packages("BiocManager")
  condition <- factor(c("Control", "Control", "Control", "PD", "PD", "PD"))
  metadata <- data.frame(row.names = sample_names, condition = condition)
  
- # 3. Create the Count Matrix (FIXED & ACCURATE)
- # هنا وضعنا بيانات كل عينة في عمود منفصل لتجنب أي تداخل
  genes <- c("TH", "SNCA", "PINK1", "PRKN", "GAPDH", "ACTB", "LRRK2", "BDNF", "GFAP", "IL6")
  
  counts_df <- data.frame(
@@ -37,24 +35,21 @@ install.packages("BiocManager")
  # 6. Run the analysis
  dds <- DESeq(dds)
  
- # --- الآن يمكنك استخراج النتائج ورسم الـ Volcano Plot والـ Heatmap بنس الأكواد السابقة ---
  
- # 1. استخراج النتائج وتحويلها إلى res_df
  res <- results(dds)
  res_ordered <- res[order(res$padj), ]
  res_df <- as.data.frame(res_ordered)
  res_df$gene <- rownames(res_df)
  
- # 2. تحديد الجينات المهمة (Upregulated vs Downregulated)
+ # Determine (Upregulated vs Downregulated)
  res_df$Expression <- "Not Significant"
  res_df$Expression[res_df$log2FoldChange > 1 & res_df$padj < 0.05] <- "Upregulated (e.g. SNCA)"
  res_df$Expression[res_df$log2FoldChange < -1 & res_df$padj < 0.05] <- "Downregulated (e.g. TH)"
- 
- # 3. استدعاء مكتبات الرسم
+
  library(ggplot2)
  library(ggrepel)
  
- # 4. رسم الـ Volcano Plot بالشكل الصحيح
+ #  Volcano Plot 
  ggplot(data = res_df, aes(x = log2FoldChange, y = -log10(padj), col = Expression, label = gene)) +
    geom_point(size = 3.5, alpha = 0.8) +
    geom_text_repel(max.overlaps = 15, size = 4, show.legend = FALSE) +
@@ -70,7 +65,6 @@ install.packages("BiocManager")
         y = "-log10 Adjusted P-value (Statistical Significance)") +
    theme(legend.position = "bottom")
  
- # 1. Install pheatmap if you don't have it
  # install.packages("pheatmap")
  library(pheatmap)
  
