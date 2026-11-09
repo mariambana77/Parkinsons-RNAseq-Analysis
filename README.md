@@ -17,14 +17,14 @@ My background in biotechnology and my graduation project research on the neuropr
 ## 📊 Key Biological Insights & Visualizations
 
 ### 1. Volcano Plot: Identifying Significant Gene Dysregulation
-[Volcano Plot]([Heatmap Plot.png)](https://github.com/mariambana77/Parkinsons-RNAseq-Analysis/blob/37a91aa8909cbe5dffea960fe26d7f9888c31375/Volcano%20plot.png)
+[Volcano Plot]([Heatmap Plot.png)](https://github.com/mariambana77/Parkinsons-RNAseq-Analysis/blob/0329d3eeecba95805f2ee09ae01867049dcca087/Volcano%20plot.png)
 
 **Findings:**
 * **Downregulated Pathways:** The significant downregulation of **TH** (Tyrosine Hydroxylase) and **BDNF** reflects the hallmark biological death of dopaminergic neurons and the loss of neurotrophic support in the PD model.
 * **Upregulated Pathways:** The sharp upregulation of **SNCA** (Alpha-synuclein) and neuroinflammatory markers like **IL6** aligns with the pathological protein aggregation and reactive gliosis typical in Parkinson's disease.
 
 ### 2. Expression Heatmap: Sample Clustering
-[Heatmap]([Heatmap Plot.png](https://github.com/mariambana77/Parkinsons-RNAseq-Analysis/blob/37a91aa8909cbe5dffea960fe26d7f9888c31375/Heatmap%20Plot.png)
+[Heatmap]([Heatmap Plot.png](https://github.com/mariambana77/Parkinsons-RNAseq-Analysis/blob/0329d3eeecba95805f2ee09ae01867049dcca087/Heatmap%20Plot.png)
 
 **Findings:**
 The unsupervised hierarchical clustering successfully segregates the PD samples from the Healthy Controls based solely on their genetic expression profiles. The Z-score scaling clearly visualizes the contrast between overactive inflammatory genes and silenced dopaminergic genes across the cohorts.
